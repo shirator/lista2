@@ -1,32 +1,22 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-int main() 
+int main()
 {
-    int max = 5;
-    int m = max;
-    int n = 0;
+    int n;
     float *coeficientes;
     float soma, media;
-    coeficientes = (float *) malloc(m * sizeof(float));
 
-    float valor;
-    do
+    printf("Informe a quantidade de coeficientes: ");
+    scanf("%d", &n);
+
+    coeficientes = (float *) malloc(n * sizeof(float));
+
+    for (int i = 0; i < n; i++)
     {
-        printf("Entre com o %dº coeficiente: ", n + 1);
-        scanf("%f", &valor);
-
-        if (valor >= 0) 
-        {   
-            if (m >= n)
-            {
-                m += max;
-                coeficientes = (float *) realloc(coeficientes, m * sizeof(float));
-            }
-            coeficientes[n] = valor;
-            n++;
-        }
-    }while (valor >= 0);
+        printf("Entre com o %dº coeficiente: ", i + 1);
+        scanf("%f", &coeficientes[i]);
+    }
 
     soma = 0;
     for (int i = 0; i < n; i++)
